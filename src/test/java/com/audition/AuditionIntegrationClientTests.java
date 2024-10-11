@@ -12,6 +12,7 @@ import com.audition.common.ApplicationProperties;
 import com.audition.common.ApplicationProperties.Endpoint;
 import com.audition.common.exception.ItemNotFoundException;
 import com.audition.common.exception.SystemException;
+import com.audition.common.logging.AuditionLogger;
 import com.audition.integration.AuditionIntegrationClient;
 import com.audition.model.AuditionPost;
 import com.audition.model.Comment;
@@ -46,6 +47,9 @@ class AuditionIntegrationClientTests {
 
     @Mock
     Endpoint endpoint;
+    
+    @Mock
+    AuditionLogger logger;
 
     @Autowired
     private ApplicationProperties properties;

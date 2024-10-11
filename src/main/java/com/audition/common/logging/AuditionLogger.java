@@ -58,7 +58,8 @@ public class AuditionLogger {
     }
 
     private String createStandardProblemDetailMessage(final ProblemDetail standardProblemDetail) {
-        // TODO Add implementation here.
+    
+        
         return StringUtils.EMPTY;
     }
 

@@ -26,3 +26,7 @@ management:
 logging:
   pattern:
     level: "%5p [${spring.application.name:},%X{traceId:-},%X{spanId:-}]"
+app:
+  endpoint:
+    postUrl : https://jsonplaceholder.typicode.com/posts
+    commentsUrl : https://jsonplaceholder.typicode.com/comments

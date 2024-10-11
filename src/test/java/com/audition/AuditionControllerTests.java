@@ -19,10 +19,7 @@ import com.audition.integration.AuditionIntegrationClient;
 import com.audition.model.AuditionPost;
 import com.audition.web.AuditionController;
 
-class AuditionApplicationTests {
-
-    // TODO implement unit test. Note that an applicant should create additional
-    // unit tests as required.
+class AuditionControllerTests {
 
     private MockMvc mockMvc;
     @Mock
@@ -47,13 +44,19 @@ class AuditionApplicationTests {
     }
 
     @Test
-    void getCommentsByPostId_shouldReturnOk() throws Exception {
+    void getPostByPostId_shouldReturnOk() throws Exception {
         String postId = "1";
-        // when(applicationProperties.getEndpoint().getCommentsUrl())
-        // .thenReturn("https://jsonplaceholder.typicode.com/comments?postId=");
         when(client.getPostById(postId)).thenReturn(null);
         mockMvc.perform(get("/posts/" + postId))
                 .andExpect(status().isOk());
     }
+
+    @Test
+    void getCommentsByPostId_shouldReturnOk() throws Exception {
+        when(client.getComments("postId")).thenReturn(null);
+        mockMvc.perform(get("/comments"))
+                .andExpect(status().isOk());
+    }
+
 
 }

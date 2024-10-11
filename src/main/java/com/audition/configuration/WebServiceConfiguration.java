@@ -23,8 +23,6 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @Configuration
 public class WebServiceConfiguration implements WebMvcConfigurer {
 
-    @Autowired
-    RestTemplateLoggingInterceptor interceptor;
     private static final String YEAR_MONTH_DAY_PATTERN = "yyyy-MM-dd";
 
     @Bean
@@ -44,7 +42,7 @@ public class WebServiceConfiguration implements WebMvcConfigurer {
     public RestTemplate restTemplate() {
         final RestTemplate restTemplate = new RestTemplate(
                 new BufferingClientHttpRequestFactory(createClientFactory()));
-        restTemplate.setInterceptors(List.of(interceptor));
+        restTemplate.setInterceptors(List.of(new RestTemplateLoggingInterceptor()));
         var converter = new MappingJackson2HttpMessageConverter(objectMapper());
         converter.setSupportedMediaTypes(Collections.singletonList(MediaType.ALL));        
         restTemplate.setMessageConverters(List.of(converter));

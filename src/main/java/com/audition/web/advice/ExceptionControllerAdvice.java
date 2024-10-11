@@ -26,8 +26,8 @@ public class ExceptionControllerAdvice extends ResponseEntityExceptionHandler {
     private static final String DEFAULT_MESSAGE = "API Error occurred. Please contact support or administrator.";
 
 
-    @ExceptionHandler(HttpClientErrorException.class)
-    ProblemDetail handleHttpClientException(final HttpClientErrorException e) {
+    @ExceptionHandler(Exception.class)
+    ProblemDetail handleException(final Exception e) {
         return createProblemDetail(e, getHttpStatusCodeFromException(e));
 
     }

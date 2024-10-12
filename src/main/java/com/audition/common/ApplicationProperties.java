@@ -32,5 +32,7 @@ public class ApplicationProperties {
         String postUrl;
         @NotBlank
         String commentsUrl;
+        @NotBlank
+        String postCommentsUrl;
     }
 }

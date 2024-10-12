@@ -57,7 +57,7 @@ public class AuditionIntegrationClient implements AuditionService {
 
     public List<Comment> getCommentsOnPost(final String postId) {
         try {
-            String commentsUrl = String.format("%s/%s/comments", properties.getEndpoint().getPostUrl(), postId != null ? postId : "");
+            String commentsUrl = String.format(properties.getEndpoint().getPostCommentsUrl(), postId);
             List<Comment> comments =  restTemplate.exchange(commentsUrl, HttpMethod.GET,
             null, new ParameterizedTypeReference<List<Comment>>() {
             }).getBody();

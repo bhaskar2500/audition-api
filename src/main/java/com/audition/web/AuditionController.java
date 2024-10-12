@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -31,7 +32,7 @@ public class AuditionController {
         return ResponseEntity.ok(auditionPosts);
     }
     @GetMapping(value = "/comments", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<List<Comment>> getComments(@RequestParam(required = false) String postId) {
+    public ResponseEntity<List<Comment>> getComments(@RequestParam(required = true) String postId) {
         final List<Comment> comments = auditionService.getComments(postId);
         return ResponseEntity.ok(comments);
     }

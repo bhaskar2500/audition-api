@@ -57,7 +57,7 @@ class AuditionIntegrationClientTests {
     @BeforeEach
     void setUp() {
         MockitoAnnotations.openMocks(this);
-        endpoint = new Endpoint("https://jsonplaceholder.typicode.com/posts", "https://jsonplaceholder.typicode.com/comments");
+        endpoint = new Endpoint("https://jsonplaceholder.typicode.com/posts", "https://jsonplaceholder.typicode.com/comments" ,"https://jsonplaceholder.typicode.com/posts/%s/comments");
         properties = new ApplicationProperties(endpoint);
         ReflectionTestUtils.setField(auditionIntegrationClient, "properties", properties, ApplicationProperties.class);
     }

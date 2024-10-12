@@ -30,3 +30,4 @@ app:
   endpoint:
     postUrl : https://jsonplaceholder.typicode.com/posts
     commentsUrl : https://jsonplaceholder.typicode.com/comments
+    postCommentsUrl : https://jsonplaceholder.typicode.com/posts/%s/comments"
